@@ -32,9 +32,9 @@ class WeatherService {
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
     // convert the location into a List of placemark object
-    List<Placeholder> placemark = await placemarkFromCoordinates(position.latitude, position.longitude);
+    List<Placemark> placemarks = await placemarkFromCoordinates(position.latitude, position.longitude);
     // extract the city name from the first placemark
-    String? city = placemark[0].locality;
+    String? city = placemarks[0].locality;
     return city ?? "" ;
   }
 }
